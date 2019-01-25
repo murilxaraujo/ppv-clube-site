@@ -1,0 +1,25 @@
+<mat-nav-list>
+    <a routerLink="" mat-list-item (click)="openLink($event)">
+        <span mat-line>Início</span>
+    </a>
+
+    <a routerLink="about" mat-list-item (click)="openLink($event)">
+        <span mat-line>Sobre nós</span>
+    </a>
+
+    <a routerLink="magazine" mat-list-item (click)="openLink($event)">
+        <span mat-line>Revista</span>
+    </a>
+
+    <a routerLink="cupons" mat-list-item (click)="openLink($event)">
+        <span mat-line>Descontos</span>
+    </a>
+
+    <a *ngIf="false" routerLink="signup" mat-list-item (click)="openLink($event)">
+        <span mat-line>Faça parte</span>
+    </a>
+
+    <a routerLink="profile" mat-list-item (click)="openLink($event)">
+        <span mat-line>Área do cliente</span>
+    </a>
+</mat-nav-list>

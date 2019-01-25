@@ -1,0 +1,44 @@
+@import '~@angular/material/theming';
+
+$desktop: 800px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+
+mat-toolbar {
+    background-color: #52aad4;
+    color: white;
+    
+    img {
+        height: 90%;
+        margin: 15px;
+    }
+
+    .spacer {
+        flex: 1 1 auto;
+    }
+
+    button {
+        margin: 2.5px;
+    }
+
+    .desktopmenu {
+        display: none;
+        @include desktop {
+            display: block;
+        }
+    }
+
+    .mobilemenu {
+        background-color: white;
+        display: block;
+        @include desktop {
+            display: none;
+        }
+    }
+
+}

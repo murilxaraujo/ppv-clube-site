@@ -1,0 +1,57 @@
+$desktop: 800px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+#content {
+    
+    #image {
+        height: 100%;
+        width: 100%;
+        background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('src/assets/DSC_1460.JPG');
+        background-size: cover;
+        background-position: center center;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;        
+
+        @include desktop {
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 2fr;
+            background: url('src/assets/DSC_1460.JPG') no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h2 {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            margin-bottom: auto;
+            color: white;
+
+            @include desktop {
+                display: none;
+            }
+        }
+    }
+
+    @include desktop {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+#subcontent {
+    padding: 20px;
+
+    @include desktop {
+        padding: 40px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+}

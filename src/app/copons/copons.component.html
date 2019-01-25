@@ -1,0 +1,86 @@
+
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="Parceiros próprios">
+       <div class="content">
+          <mat-card>
+              <mat-form-field class="items">
+                <mat-select [(value)]="selectedCity" (change)="change()" placeholder="Cidade">
+                  <mat-option value="Piracanjuba">Piracanjuba</mat-option>
+                  <mat-option value="Goiânia">Goiânia</mat-option>
+                  <mat-option value="Cristianópolis">Cristianópolis</mat-option>
+                  <mat-option value="Caldas Novas">Caldas Novas</mat-option>
+                  <mat-option value="Morrinhos">Morrinhos</mat-option>
+                  <mat-option value="Bela Vista de Goiás">Bela Vista de Goiás</mat-option>
+                  <mat-option value="Professor Jamil">Professor Jamil</mat-option>
+                  <mat-option value="Goiatuba">Goiatuba</mat-option>
+                  <mat-option value="Rio Quente">Rio Quente</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="items">
+                <mat-select [(value)]="selectedCat" placeholder="Categoria" (change)="change()">
+                  <mat-option value="Profissionais">Profissionais</mat-option>
+                  <mat-option value="Clínicas e laboratórios">Clínicas e laboratórios</mat-option>
+                  <mat-option value="Comércio">Comércio</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button class="items" mat-button (click)="query()">Buscar</button>
+          </mat-card>
+
+          <div id="table">
+            <mat-accordion>
+              <mat-expansion-panel *ngFor="let parceiro of parceiros | async">
+                <mat-expansion-panel-header>
+                  {{ parceiro.title }}
+                </mat-expansion-panel-header>
+                <div>
+                  <h4 *ngIf="selectedCat != 'Profissionais'">{{ parceiro.desc }}</h4>
+                  <p *ngIf="selectedCat == 'Comércio'">Endereço: {{ parceiro.addr }}, {{ parceiro.cidade}} - {{parceiro.estado}}</p>
+                  <p *ngIf="selectedCat == 'Comércio'">Telefone: {{ parceiro.tel }}</p>
+                  <p *ngIf="selectedCat == 'Profissionais'">Área: {{ parceiro.type }}</p>
+
+
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+
+          <p *ngIf="(parceiros | async)?.length==0">Não existem itens para mostrar</p>
+       </div>
+    </mat-tab>
+    <!--
+      <mat-tab label="Capemisa" disabled>
+      <mat-tab-group>
+        <mat-tab label="Login">
+          <div class="content">
+            <mat-card class="card">
+                <embed class="embed" src="https://www.maisvantagenscapemisa.com.br/">
+            </mat-card>
+          </div>
+        </mat-tab>
+
+        <mat-tab label="Regulamento">
+         
+        </mat-tab>
+      </mat-tab-group>
+    </mat-tab>
+    <mat-tab label="E-Pharma">
+      <mat-tab-group>
+        <mat-tab label="Farmácias">
+          <div class="content">
+            <mat-card class="card">
+                <embed class="embed" src="https://ias2.epharmatecnologia.com.br/sa/pesquisas/lojas?p_pln=32901">
+            </mat-card>
+        </div>
+        </mat-tab>
+        <mat-tab label="Medicamentos">
+          <div class="content">
+            <mat-card class="card">
+                <embed class="embed" src="https://ias2.epharmatecnologia.com.br/sa/pesquisas/pesqprod_v5?p_cno=2453&p_pln=32901">
+            </mat-card>
+        </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-tab>
+    -->
+    
+  </mat-tab-group>

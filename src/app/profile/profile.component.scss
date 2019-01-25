@@ -1,0 +1,52 @@
+$desktop: 1300px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+mat-progress-bar {
+    color: aquamarine;
+
+}
+
+#content {
+    margin: 15px;
+
+    @include desktop {
+        display: grid;
+        grid-template-columns: auto 500px 500px auto;
+        grid-gap: 15px;
+    }
+
+    mat-card {
+        margin-bottom: 15px;
+    }
+
+    #profilecard {
+
+        #innercontent {
+            display: grid;
+            grid-template-columns: 130px auto;
+        }   
+    }
+}
+
+.round-image {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    margin: auto;
+}
+
+#logoutbtn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    @include desktop {
+        bottom: auto;
+        top: 85px;
+    }
+}

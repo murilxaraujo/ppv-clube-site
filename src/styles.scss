@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@import "~owl.carousel/dist/assets/owl.carousel.css";
+@import "~owl.carousel/dist/assets/owl.theme.default.css";
+
+html, body {
+    background: #f2f2f2;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button:focus {outline:0;}

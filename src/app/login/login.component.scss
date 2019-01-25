@@ -1,0 +1,39 @@
+$desktop: 800px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+#progressbar {
+    display: none;
+}
+
+#content {
+    margin: 15px;
+    mat-card {
+        padding: 0;
+    }
+
+    .subcontent {
+        padding: 15px;
+    }
+
+    @include desktop {
+        max-width: 500px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.formfield {
+    margin: 20px;
+}

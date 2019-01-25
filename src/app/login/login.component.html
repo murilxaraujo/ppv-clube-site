@@ -1,0 +1,52 @@
+
+<mat-progress-bar id="progressbar" mode="indeterminate"></mat-progress-bar>
+<div id="content">
+  <mat-card>
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="Entrar">
+        <div class="subcontent">
+            <div class="form">
+              <mat-form-field >
+                <input matInput [(ngModel)]="loginemail" id="loginemail" placeholder="E-mail" type="email">
+              </mat-form-field>
+              <mat-form-field >
+                <input matInput [(ngModel)]="loginpassword" id="loginpassword" placeholder="Senha" type="password">
+              </mat-form-field>
+              <button mat-button (click)="login()">Entrar</button>
+            </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Criar conta">
+        <mat-vertical-stepper #stepper linear>
+          <mat-step label="Validação" [editable]="false">
+            <div>
+              <mat-form-field>
+                <input matInput [(ngModel)]="signupcpf" placeholder="CPF" type="text" value="">
+              </mat-form-field>
+              <button mat-button (click)="validarCPF()">Próximo</button>
+            </div>
+          </mat-step>
+          <mat-step label="Informações" [editable]="false">
+            <div>
+              <h4>Olá, {{userName}}</h4>
+              <p>Para criar sua conta use um e-mail já existente e crie uma senha.</p>
+              <mat-form-field class="formfield">
+                <input matInput [(ngModel)]="signupemail" type="email" placeholder="E-mail">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput [(ngModel)]="signuppassword" type="password" placeholder="Senha">
+              </mat-form-field>
+              <button mat-button (click)="abrirConta()">Próximo</button>
+            </div>
+          </mat-step>
+          <mat-step label="Pronto!">
+            <div>
+              <h4>Tudo Pronto!</h4>
+              <p>Em alguns segundos você será redirecionado para o seu perfil</p>
+            </div>
+          </mat-step>
+        </mat-vertical-stepper>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

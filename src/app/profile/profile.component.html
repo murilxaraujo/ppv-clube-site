@@ -1,0 +1,42 @@
+<mat-progress-bar *ngIf="loaded==false" id="loadinbar" mode="indeterminate"></mat-progress-bar>
+
+<div id="content" *ngIf="loaded==true" >
+  <span></span>
+  <mat-card id="profilecard">
+    <div id="innercontent">
+      <div id="pic">
+        <ngx-qrcode qrc-element-type="canvas" [qrc-value]="card" ></ngx-qrcode>
+      </div>
+      <div id="info">
+        <h2>{{nome}}</h2>
+        <p>Cartão Nº: {{card}}<br>Titular</p>
+
+      </div>
+    </div>
+  </mat-card>
+  <mat-card *ngIf="false">
+    <h2>Dependentes</h2>
+  </mat-card>
+
+  <mat-card *ngIf="paymentsloaded">
+    <h2>Financeiro - Status: {{status}}</h2>
+    <mat-list *ngFor="let item of payments">
+      <mat-list-item>
+        <mat-icon mat-list-icon>hourglass_full</mat-icon>
+        <h4 mat-line>{{(item.VENCIMENTO)[4]}}{{(item.VENCIMENTO)[5]}}/{{(item.VENCIMENTO)[0]}}{{(item.VENCIMENTO)[1]}}{{(item.VENCIMENTO)[2]}}{{(item.VENCIMENTO)[3]}}</h4>
+        <p mt-line>pendente</p>
+      </mat-list-item>
+    </mat-list>
+    <p *ngIf="penpayment == false">Não há pagamentos pendentes</p>
+  </mat-card>
+
+</div>
+
+<button
+  mat-fab
+  matTooltip="Sair"
+  id="logoutbtn"
+  color="--blue"
+  (click)="logoff()">
+    <mat-icon aria-label="Example icon-button with a heart icon">exit_to_app</mat-icon>
+</button>

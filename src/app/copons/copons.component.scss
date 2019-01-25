@@ -1,0 +1,44 @@
+mat-tab-group {
+    height: 100%;
+}
+.content {
+    margin: 15px;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.items {
+    margin: 10px;
+}
+
+.embed {
+    width: 100%;
+    height: 80vh;
+}
+
+.card {
+    height: 100%;
+    padding: 0;
+}
+
+.cardmain {
+    height: 100%;
+    padding: 15px;
+}
+
+#table {
+    margin-top: 15px;
+}
+
+.example-tree-invisible {
+    display: none;
+  }
+  
+  .example-tree ul,
+  .example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+  
