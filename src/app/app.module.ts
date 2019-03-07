@@ -48,6 +48,7 @@ import {ProfileComponent} from './profile/profile.component';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { MagazineComponent } from './magazine/magazine.component';
+import { PecaoseuComponent } from './pecaoseu/pecaoseu.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { MagazineComponent } from './magazine/magazine.component';
     ProfileComponent,
     BottomSheetMenu,
     LoginComponent,
-    MagazineComponent
+    MagazineComponent,
+    PecaoseuComponent
   ],
   imports: [
     BrowserModule,
