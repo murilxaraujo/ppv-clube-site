@@ -6,27 +6,27 @@
     <mat-card-subtitle>Preencha o formulário abaixo e peça já o seu cartão!<br>Após a confirmação do pagamento o seu cartão chegará na sua casa<br><br>Campos marcados com * são obrigatórios</mat-card-subtitle>
     <mat-card-content>
       <br>
-      <form class="example-form">
+      <form class="example-form" [formGroup]="mForm" (ngSubmit)="sendForm(mForm.value)">
         <p>Dados Pessoais</p>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Primeiro nome</mat-label>
-          <input matInput required>
+          <input matInput required formControlName="primeiroNome">
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Sobrenome</mat-label>
-          <input matInput required>
+          <input matInput required formControlName="sobrenome">
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>CPF</mat-label>
-          <input matInput placeholder="Use somente números, sem pontuações ou caracteres especiais" required>
+          <input matInput formControlName="cpf" placeholder="Use somente números, sem pontuações ou caracteres especiais" required>
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>RG</mat-label>
-          <input matInput placeholder="Use somente números, sem pontuações ou caracteres especiais" required>
+          <input matInput formControlName="rg" placeholder="Use somente números, sem pontuações ou caracteres especiais" required>
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Órgão expedidor</mat-label>
-          <mat-select required>
+          <mat-select formControlName="orgaoExpedidor" required>
             <mat-option value="SSP">SSP - Secretaria de Segurança Pública</mat-option>
             <mat-option value="PM">PM - Polícia Militar</mat-option>
             <mat-option value="PC">PC - Policia Civil</mat-option>
@@ -51,7 +51,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Grau de instrução</mat-label>
-          <mat-select required>
+          <mat-select formControlName="grauDeInstituicao" required>
             <mat-option value="Analfabeto">Analfabeto</mat-option>
             <mat-option value="Ensino fundamental incompleto">Ensino fundamental incompleto</mat-option>
             <mat-option value="Ensino fundamental completo">Ensino fundamental completo</mat-option>
@@ -63,21 +63,21 @@
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Nome do pai</mat-label>
-          <input matInput placeholder="Digite o nome completo do seu pai">
+          <input matInput placeholder="Digite o nome completo do seu pai" formControlName="nomePai">
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Nome da mãe</mat-label>
-            <input matInput placeholder="Digite o nome completo da sua mãe">
+            <input matInput placeholder="Digite o nome completo da sua mãe" formControlName="nomeMae">
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Data de nascimento</mat-label>
-          <input matInput [matDatepicker]="picker" required>
+          <input matInput [matDatepicker]="picker" required formControlName="birthDate">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Sexo</mat-label>
-          <mat-select required>
+          <mat-select required formControlName="sexo">
             <mat-option value="M">Masculino</mat-option>
             <mat-option value="F">Feminino</mat-option>
             <mat-option value="N">Prefiro não responder</mat-option>
@@ -85,7 +85,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Estado civil</mat-label>
-          <mat-select required>
+          <mat-select required formControlName="estadoCivil">
             <mat-option value="Solteiro">Solteiro</mat-option>
             <mat-option value="Casado">Casado</mat-option>
             <mat-option value="Separado">Separado</mat-option>
@@ -97,19 +97,19 @@
         <p>Entrega</p>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>CEP</mat-label>
-          <input matInput placeholder="Use apenas números, sem pontuações ou traços" required>
+          <input matInput placeholder="Use apenas números, sem pontuações ou traços" formControlName="cep" required>
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Logradouro</mat-label>
-          <input matInput placeholder="Digite o logradouro, número e complemento" required>
+          <input matInput placeholder="Digite o logradouro, número e complemento" formControlName="logradouro" required>
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Bairro</mat-label >
-          <input matInput required>
+          <input matInput required formControlName="bairro">
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Cidade</mat-label>
-          <mat-select required>
+          <mat-select required formControlName="cidade">
             <mat-option *ngFor="let city of cities" value="city">{{city}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -117,22 +117,21 @@
         <p>Contato</p>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>E-mail</mat-label>
-          <input matInput required>
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          <input matInput required formControlName="email">
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Telefone fixo</mat-label>
-          <input matInput placeholder="Ex: XX XXXXXXXX">
+          <input matInput placeholder="Ex: XX XXXXXXXX" formControlName="telefoneFixo">
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Telefone celular</mat-label>
-            <input matInput placeholder="Ex: XX XXXXXXXXX" required>
+            <input matInput placeholder="Ex: XX XXXXXXXXX" required formControlName="telefoneCelular">
         </mat-form-field>
-        <mat-checkbox>O telefone acima também é WhatsApp</mat-checkbox>
+        <mat-checkbox formControlName="isWhatsapp">O telefone acima também é WhatsApp</mat-checkbox>
         <br><br>
-        <mat-checkbox class="example-full-width">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail</mat-checkbox>
-        <mat-checkbox>Eu ja sou doador de algum projeto social da Paixão pela Vida</mat-checkbox>
-        <button mat-button>Ir para pagamento</button>
+        <mat-checkbox class="example-full-width" formControlName="newsLetterAllowance">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail</mat-checkbox>
+        <mat-checkbox formControlName="donatorCheckBox">Eu ja sou doador de algum projeto social da Paixão pela Vida</mat-checkbox>
+        <button mat-button [disabled]="!mForm.valid" type="submit">Ir para pagamento</button>
       </form>
     </mat-card-content>
   </mat-card>

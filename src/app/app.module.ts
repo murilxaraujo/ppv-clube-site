@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { CoreModule } from './core/core.module';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -102,7 +102,8 @@ import { PecaoseuComponent } from './pecaoseu/pecaoseu.component';
     MatTableModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
   schemas:[NO_ERRORS_SCHEMA],
   providers: [],
