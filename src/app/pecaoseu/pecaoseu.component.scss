@@ -1,0 +1,26 @@
+$desktop: 800px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+#content {
+    padding: 20px;
+
+    @include desktop {
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr;
+    }
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.example-full-width {
+    width: 100%;
+}

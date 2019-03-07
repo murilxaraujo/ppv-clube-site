@@ -1,1 +1,139 @@
-
+<mat-progress-bar *ngIf="loading" id="progressbar" mode="indeterminate"></mat-progress-bar>
+<div id="content">
+  <span></span>
+  <mat-card>
+    <mat-card-title>Peça o seu cartão!</mat-card-title>
+    <mat-card-subtitle>Preencha o formulário abaixo e peça já o seu cartão!<br>Após a confirmação do pagamento o seu cartão chegará na sua casa<br><br>Campos marcados com * são obrigatórios</mat-card-subtitle>
+    <mat-card-content>
+      <br>
+      <form class="example-form">
+        <p>Dados Pessoais</p>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Primeiro nome</mat-label>
+          <input matInput required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Sobrenome</mat-label>
+          <input matInput required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>CPF</mat-label>
+          <input matInput placeholder="Use somente números, sem pontuações ou caracteres especiais" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>RG</mat-label>
+          <input matInput placeholder="Use somente números, sem pontuações ou caracteres especiais" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Órgão expedidor</mat-label>
+          <mat-select required>
+            <mat-option value="SSP">SSP - Secretaria de Segurança Pública</mat-option>
+            <mat-option value="PM">PM - Polícia Militar</mat-option>
+            <mat-option value="PC">PC - Policia Civil</mat-option>
+            <mat-option value="CNT">CNT - Carteira Nacional de Habilitação</mat-option>
+            <mat-option value="DIC">DIC - Diretoria de Identificação Civil</mat-option>
+            <mat-option value="CTPS">CTPS - Carteira de Trabaho e Previdência Social</mat-option>
+            <mat-option value="FGTS">FGTS - Fundo de Garantia do Tempo de Serviço</mat-option>
+            <mat-option value="IFP">IFP - Instituto Félix Pacheco</mat-option>
+            <mat-option value="IPF">IPF - Instituto Pereira Faustino</mat-option>
+            <mat-option value="IML">IML - Instituto Médico-Legal</mat-option>
+            <mat-option value="MTE">MTE - Ministério do Trabalho e Emprego</mat-option>
+            <mat-option value="MMA">MMA - Ministério da Marinha</mat-option>
+            <mat-option value="MAE">MAE - Ministério da Aeronáutica</mat-option>
+            <mat-option value="MEX">MEX - Ministério do Exército</mat-option>
+            <mat-option value="POF">POF - Polícia Federal</mat-option>
+            <mat-option value="POM">POM - Polícia Militar</mat-option>
+            <mat-option value="SES">SES - Carteira de Estrangeiro</mat-option>
+            <mat-option value="SJS">SJS - Secretaria da Justiça e Segurança</mat-option>
+            <mat-option value="SJTS">SJTS - Secretaria da Justiça do Trabalho e Segurança</mat-option>
+            <mat-option value="O">Outros</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Grau de instrução</mat-label>
+          <mat-select required>
+            <mat-option value="Analfabeto">Analfabeto</mat-option>
+            <mat-option value="Ensino fundamental incompleto">Ensino fundamental incompleto</mat-option>
+            <mat-option value="Ensino fundamental completo">Ensino fundamental completo</mat-option>
+            <mat-option value="Ensino médio incompleto">Ensino médio incompleto</mat-option>
+            <mat-option value="Ensino médio completo">Ensino médio completo</mat-option>
+            <mat-option value="Superior incompleto">Superior incompleto</mat-option>
+            <mat-option value="Superior completo">Superior completo</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Nome do pai</mat-label>
+          <input matInput placeholder="Digite o nome completo do seu pai">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Nome da mãe</mat-label>
+            <input matInput placeholder="Digite o nome completo da sua mãe">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Data de nascimento</mat-label>
+          <input matInput [matDatepicker]="picker" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Sexo</mat-label>
+          <mat-select required>
+            <mat-option value="M">Masculino</mat-option>
+            <mat-option value="F">Feminino</mat-option>
+            <mat-option value="N">Prefiro não responder</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Estado civil</mat-label>
+          <mat-select required>
+            <mat-option value="Solteiro">Solteiro</mat-option>
+            <mat-option value="Casado">Casado</mat-option>
+            <mat-option value="Separado">Separado</mat-option>
+            <mat-option value="Divorciado">Divorciado</mat-option>
+            <mat-option value="Viuvo">Viúvo</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br><br>
+        <p>Entrega</p>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>CEP</mat-label>
+          <input matInput placeholder="Use apenas números, sem pontuações ou traços" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Logradouro</mat-label>
+          <input matInput placeholder="Digite o logradouro, número e complemento" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Bairro</mat-label >
+          <input matInput required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Cidade</mat-label>
+          <mat-select required>
+            <mat-option *ngFor="let city of cities" value="city">{{city}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br><br>
+        <p>Contato</p>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>E-mail</mat-label>
+          <input matInput required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Telefone fixo</mat-label>
+          <input matInput placeholder="Ex: XX XXXXXXXX">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Telefone celular</mat-label>
+            <input matInput placeholder="Ex: XX XXXXXXXXX" required>
+        </mat-form-field>
+        <mat-checkbox>O telefone acima também é WhatsApp</mat-checkbox>
+        <br><br>
+        <mat-checkbox class="example-full-width">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail</mat-checkbox>
+        <mat-checkbox>Eu ja sou doador de algum projeto social da Paixão pela Vida</mat-checkbox>
+        <button mat-button>Ir para pagamento</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
