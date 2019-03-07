@@ -7,6 +7,7 @@ import { CoponsComponent } from './copons/copons.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { MagazineComponent } from './magazine/magazine.component';
+import { PecaoseuComponent } from './pecaoseu/pecaoseu.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'magazine',
     component: MagazineComponent
+  },
+  {
+    path: 'pedircartao',
+    component: PecaoseuComponent
   }
 ];
 
