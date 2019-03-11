@@ -7,7 +7,7 @@
     <mat-card-content>
       <br>
       <form class="example-form" [formGroup]="mForm" (ngSubmit)="sendForm(mForm.value)">
-        <p>Dados Pessoais</p>
+        <p>Dados pessoais</p>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Primeiro nome</mat-label>
           <input matInput required formControlName="primeiroNome">
@@ -94,14 +94,85 @@
           </mat-select>
         </mat-form-field>
         <br><br>
-        <p>Entrega</p>
+        <mat-checkbox formControlName="familiar" [(ngModel)]="toggle">Plano familiar</mat-checkbox>
+        <div *ngIf="toggle">
+          <br>
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Adicionar dependente
+              </mat-expansion-panel-header>
+              <div>
+                <mat-radio-group [ngModelOptions]="{standalone: true}" [(ngModel)]="dependenteType">
+                  <mat-radio-button value="Cônjuge">Cônjuge</mat-radio-button>
+                  <mat-radio-button value="Filho">Filho</mat-radio-button>
+                </mat-radio-group>
+                <br><br>
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Nome completo</mat-label>
+                  <input [ngModelOptions]="{standalone: true}" matInput placeholder="Placeholder" [(ngModel)]="dependenteNome" required>
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>CPF</mat-label>
+                  <input [ngModelOptions]="{standalone: true}" matInput [(ngModel)]="dependenteCPF" placeholder="Use somente números, sem pontuações ou caracteres especiais" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>RG</mat-label>
+                  <input [ngModelOptions]="{standalone: true}" matInput [(ngModel)]="dependenteRG" placeholder="Use somente números, sem pontuações ou caracteres especiais" required>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Data de nascimento</mat-label>
+                  <input [ngModelOptions]="{standalone: true}" [(ngModel)]="dependenteBirthDate" matInput [matDatepicker]="picker" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>Sexo</mat-label>
+                  <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="dependenteSexo" required>
+                    <mat-option value="M">Masculino</mat-option>
+                    <mat-option value="F">Feminino</mat-option>
+                    <mat-option value="N">Prefiro não responder</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <p>*Filhos de até 21 anos e solteiros</p>
+                <button mat-button type="button" (click)="addDependente()">Adicionar</button>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <br>
+          <div *ngIf="dependentes.length > 0">
+            <mat-card >
+              <mat-card-body>
+                <mat-list>
+                  <mat-list-item *ngFor="let item of dependentes">{{item.nome}} - {{item.parentesco}}</mat-list-item>
+                </mat-list>
+              </mat-card-body>
+            </mat-card>
+          </div>
+          
+        </div>
+        <br><br>
+        <p>Endereço</p>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>CEP</mat-label>
           <input matInput placeholder="Use apenas números, sem pontuações ou traços" formControlName="cep" required>
         </mat-form-field>
+        <!--Add n and complemento-->
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Logradouro</mat-label>
           <input matInput placeholder="Digite o logradouro, número e complemento" formControlName="logradouro" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Número</mat-label>
+          <input type="number" matInput formControlName="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width">
+          <mat-label>Complemento</mat-label>
+          <input type="text" matInput formControlName="complemento">
         </mat-form-field>
         <mat-form-field appearance="fill" class="example-full-width">
           <mat-label>Bairro</mat-label >
@@ -129,8 +200,19 @@
         </mat-form-field>
         <mat-checkbox formControlName="isWhatsapp">O telefone acima também é WhatsApp</mat-checkbox>
         <br><br>
+        <!--Add li and aceito-->
         <mat-checkbox class="example-full-width" formControlName="newsLetterAllowance">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail</mat-checkbox>
         <mat-checkbox formControlName="donatorCheckBox">Eu ja sou doador de algum projeto social da Paixão pela Vida</mat-checkbox>
+        <br><br>
+        <div style="width: 100%; max-height: 150px; overflow: hidden; overflow-y: auto;">
+          <p>
+            Por meio da presente, venho REQUERER a minha ADESÃO como Associado (a), na categoria de sócio aderente, ao CLUBE PAIXÃO PELA VIDA, administrado pela ASSOCIAÇÃO Paixão Pela Vida, CNPJ. O 1 1 .277.353/0001-50, localizada na cidade de Piracanjuba, Estado de Goiás.
+Afirmo ainda, serem verdadeiros os dados cadastrais contidos nesta ficha, concordando com as condições do Plano Paixão Pela Vida, um Plano de Vantagens oferecido pela Associação Paixão Pela Vida, estando ciente das cláusulas do contrato cuia cópia li, recebi e se encontra sob meu poder, assim como tomei conhecimento que o Regulamento do Plano Paixão Pela Vida se encontra impresso e disponível na sede da Associação para consulta e no site www.paixaopelavida.com.br, disponível como E-Book.
+          </p>
+        </div>
+        <br>
+        <mat-checkbox class="example-full-width" required>Li e concordo com os termos acima</mat-checkbox>
+        <br><br>
         <button mat-button [disabled]="!mForm.valid" type="submit">Ir para pagamento</button>
       </form>
     </mat-card-content>

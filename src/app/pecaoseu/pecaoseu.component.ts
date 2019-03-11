@@ -1,14 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 
+export interface Dependentes {
+  nome: string;
+  parentesco: string;
+  rg: string;
+  cpf: string;
+  birth: string;
+  sexo: string;
+}
 @Component({
   selector: 'app-pecaoseu',
   templateUrl: './pecaoseu.component.html',
   styleUrls: ['./pecaoseu.component.scss']
 })
 export class PecaoseuComponent implements OnInit {
+  
+  dependenteType: string;
+  dependenteNome: string;
+  dependenteCPF: string;
+  dependenteRG: string;
+  dependenteBirthDate: string;
+  dependenteSexo: string;
 
   loading = false;
+
+  toggletext = 'Plano individual'
+  toggle = false;
+
+  dependentes: Dependentes[] = [];
 
   post: any;
   mForm: FormGroup;
@@ -65,15 +85,18 @@ export class PecaoseuComponent implements OnInit {
       'sexo': [null, Validators.required],
       'estadoCivil': [null, Validators.required],
       'cep': [null, Validators.required],
+      'number': '',
       'logradouro': [null, Validators.required],
       'bairro': [null, Validators.required],
       'cidade': [null, Validators.required],
       'email': [null, Validators.required],
       'telefoneFixo': '',
+      'complemento': '',
       'telefoneCelular': [null, Validators.required],
       'isWhatsapp': '',
       'newsLetterAllowance': '',
-      'donatorCheckBox': ''
+      'donatorCheckBox': '',
+      'familiar': ''
     });
 
   }
@@ -87,6 +110,31 @@ export class PecaoseuComponent implements OnInit {
 
   getErrorMessage() {
     
+  }
+
+  addDependente() {
+    let item = {
+      nome: this.dependenteNome,
+      parentesco: this.dependenteType,
+      rg: this.dependenteRG,
+      cpf: this.dependenteCPF,
+      birth: this.dependenteBirthDate,
+      sexo: this.dependenteSexo
+    }
+
+    this.dependentes.push(item);
+
+    this.clearDependentesInputs();
+
+  }
+
+  clearDependentesInputs() {
+    this.dependenteNome = null;
+    this.dependenteType = null;
+    this.dependenteRG = null;
+    this.dependenteCPF = null;
+    this.dependenteBirthDate = null;
+    this.dependenteSexo = null;
   }
 
 }

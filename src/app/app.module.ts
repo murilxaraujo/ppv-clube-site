@@ -26,6 +26,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
 
 import {NgxQRCodeModule} from 'ngx-qrcode2';
 
@@ -103,7 +105,9 @@ import { PecaoseuComponent } from './pecaoseu/pecaoseu.component';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatRadioModule
   ],
   schemas:[NO_ERRORS_SCHEMA],
   providers: [],
