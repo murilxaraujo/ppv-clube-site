@@ -125,7 +125,14 @@ export class PecaoseuComponent implements OnInit {
     this.dependentes.push(item);
 
     this.clearDependentesInputs();
+  }
 
+  deleteDependente(item: Dependentes) {
+    var index = this.dependentes.indexOf(item);
+    console.log(index);
+    if (index !== -1) {
+      this.dependentes.splice(index, 1);
+    }
   }
 
   clearDependentesInputs() {

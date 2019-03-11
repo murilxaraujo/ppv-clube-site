@@ -94,6 +94,8 @@
           </mat-select>
         </mat-form-field>
         <br><br>
+        <mat-checkbox [ngModelOptions]="{standalone: true}">Plano individual</mat-checkbox>
+        <br>
         <mat-checkbox formControlName="familiar" [(ngModel)]="toggle">Plano familiar</mat-checkbox>
         <div *ngIf="toggle">
           <br>
@@ -138,7 +140,9 @@
                     <mat-option value="N">Prefiro não responder</mat-option>
                   </mat-select>
                 </mat-form-field>
+
                 <p>*Filhos de até 21 anos e solteiros</p>
+
                 <button mat-button type="button" (click)="addDependente()">Adicionar</button>
               </div>
             </mat-expansion-panel>
@@ -148,7 +152,12 @@
             <mat-card >
               <mat-card-body>
                 <mat-list>
-                  <mat-list-item *ngFor="let item of dependentes">{{item.nome}} - {{item.parentesco}}</mat-list-item>
+                  <mat-list-item *ngFor="let item of dependentes">
+                    <div style="display: flex; width: 100%; align-items: baseline;">
+                      <p style="flex: auto;">{{item.nome}} - {{item.parentesco}}</p>
+                      <button (click)="deleteDependente(item)" style="flex: 1;" mat-button type="button">Excluir</button>
+                    </div>
+                  </mat-list-item>
                 </mat-list>
               </mat-card-body>
             </mat-card>
