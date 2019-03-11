@@ -3,7 +3,7 @@
   <span></span>
   <mat-card>
     <mat-card-title>Peça o seu cartão!</mat-card-title>
-    <mat-card-subtitle>Preencha o formulário abaixo e peça já o seu cartão!<br>Após a confirmação do pagamento o seu cartão chegará na sua casa<br><br>Campos marcados com * são obrigatórios</mat-card-subtitle>
+    <mat-card-subtitle>Preencha o formulário abaixo e se torne um associado!<br>Após a confirmação do pagamento o seu cartão chegará na sua casa.<br><br>Campos marcados com * são obrigatórios.</mat-card-subtitle>
     <mat-card-content>
       <br>
       <form class="example-form" [formGroup]="mForm" (ngSubmit)="sendForm(mForm.value)">
@@ -207,20 +207,27 @@
           <mat-label>Telefone celular</mat-label>
             <input matInput placeholder="Ex: XX XXXXXXXXX" required formControlName="telefoneCelular">
         </mat-form-field>
-        <mat-checkbox formControlName="isWhatsapp">O telefone acima também é WhatsApp</mat-checkbox>
+        <mat-checkbox formControlName="isWhatsapp">O telefone acima também é WhatsApp.</mat-checkbox>
         <br><br>
         <!--Add li and aceito-->
-        <mat-checkbox class="example-full-width" formControlName="newsLetterAllowance">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail</mat-checkbox>
-        <mat-checkbox formControlName="donatorCheckBox">Eu ja sou doador de algum projeto social da Paixão pela Vida</mat-checkbox>
+        <mat-checkbox class="example-full-width" formControlName="newsLetterAllowance">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail.</mat-checkbox>
+        <mat-checkbox formControlName="donatorCheckBox" [(ngModel)]="projetoDonator">Eu já sou doador da Casa Paixão pela Vida.</mat-checkbox>
+        <div *ngIf="projetoDonator">
+          <br>
+          <mat-form-field appearance="outline" class="example-full-width" formControlName="projectDonator">
+            <mat-label>Qual projeto?</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+        </div>
         <br><br>
         <div style="width: 100%; max-height: 150px; overflow: hidden; overflow-y: auto;">
           <p>
-            Por meio da presente, venho REQUERER a minha ADESÃO como Associado (a), na categoria de sócio aderente, ao CLUBE PAIXÃO PELA VIDA, administrado pela ASSOCIAÇÃO Paixão Pela Vida, CNPJ. O 1 1 .277.353/0001-50, localizada na cidade de Piracanjuba, Estado de Goiás.
-Afirmo ainda, serem verdadeiros os dados cadastrais contidos nesta ficha, concordando com as condições do Plano Paixão Pela Vida, um Plano de Vantagens oferecido pela Associação Paixão Pela Vida, estando ciente das cláusulas do contrato cuia cópia li, recebi e se encontra sob meu poder, assim como tomei conhecimento que o Regulamento do Plano Paixão Pela Vida se encontra impresso e disponível na sede da Associação para consulta e no site www.paixaopelavida.com.br, disponível como E-Book.
+            Por meio deste formulário, venho requerer a minha adesão como associado(a), na categoria de sócio aderente, ao CLUBE PAIXÃO PELA VIDA, administrado pela ASSOCIAÇÃO Paixão Pela Vida, CNPJ O11.277.353/0001-50, localizada na cidade de Piracanjuba-GO.
+Afirmo ainda serem verdadeiros os dados cadastrais contidos nesta ficha, concordando com as condições do Clube Paixão Pela Vida, um Plano de Vantagens oferecido pela Associação Paixão Pela Vida, estando ciente das cláusulas do contrato cuja cópia li e se encontra disponível neste site, assim como tomei conhecimento que o regulamento do Clube Paixão Pela Vida se encontra impresso e disponível na sede da associação para consulta.
           </p>
         </div>
         <br>
-        <mat-checkbox class="example-full-width" required>Li e concordo com os termos acima</mat-checkbox>
+        <mat-checkbox class="example-full-width" required>Li e concordo com os termos acima.</mat-checkbox>
         <br><br>
         <button mat-button [disabled]="!mForm.valid" type="submit">Ir para pagamento</button>
       </form>

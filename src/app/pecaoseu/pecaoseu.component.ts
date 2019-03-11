@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 export interface Dependentes {
   nome: string;
@@ -16,6 +17,8 @@ export interface Dependentes {
 })
 export class PecaoseuComponent implements OnInit {
   
+  projetoDonator = false;
+
   dependenteType: string;
   dependenteNome: string;
   dependenteCPF: string;
@@ -54,6 +57,7 @@ export class PecaoseuComponent implements OnInit {
   telefoneCelularEWhatsapp: boolean = false;
   newsLetterAllowance: boolean = false;
   donatorCheckbox: boolean = false;
+  projectDonator: string = '';
 
   cities = [
     "Alexania",
@@ -70,7 +74,7 @@ export class PecaoseuComponent implements OnInit {
   ]
   //Alexania, APdegyn
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
 
     this.mForm = formBuilder.group({
       'primeiroNome': [null, Validators.required],
@@ -96,7 +100,8 @@ export class PecaoseuComponent implements OnInit {
       'isWhatsapp': '',
       'newsLetterAllowance': '',
       'donatorCheckBox': '',
-      'familiar': ''
+      'familiar': '',
+      'projectDonator': ''
     });
 
   }
@@ -142,6 +147,18 @@ export class PecaoseuComponent implements OnInit {
     this.dependenteCPF = null;
     this.dependenteBirthDate = null;
     this.dependenteSexo = null;
+  }
+
+  sendToDataBase() {
+    
+  }
+
+  getPaymentLink(email: string, cpf: string) {
+    this.http.post('', {email: email, cpf: cpf}).toPromise().then(response => {
+      return response;
+    }).catch(error => {
+      alert(error);
+    });
   }
 
 }
