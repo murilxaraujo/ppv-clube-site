@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 export interface Dependentes {
   nome: string;
@@ -58,6 +59,7 @@ export class PecaoseuComponent implements OnInit {
   newsLetterAllowance: boolean = false;
   donatorCheckbox: boolean = false;
   projectDonator: string = '';
+  concordoComTermos: boolean = false;
 
   cities = [
     "Alexania",
@@ -74,7 +76,7 @@ export class PecaoseuComponent implements OnInit {
   ]
   //Alexania, APdegyn
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private db: AngularFirestore) {
 
     this.mForm = formBuilder.group({
       'primeiroNome': [null, Validators.required],
@@ -101,7 +103,8 @@ export class PecaoseuComponent implements OnInit {
       'newsLetterAllowance': '',
       'donatorCheckBox': '',
       'familiar': '',
-      'projectDonator': ''
+      'concordoComTermos': [null, Validators.required],
+      'donatorInput': ''
     });
 
   }
@@ -110,7 +113,7 @@ export class PecaoseuComponent implements OnInit {
   }
 
   sendForm(post) {
-
+    
   }
 
   getErrorMessage() {
@@ -150,15 +153,88 @@ export class PecaoseuComponent implements OnInit {
   }
 
   sendToDataBase() {
+    if (this.toggle) {
+      //Plano familiar
+      //this.getPaymentLinkFamiliar(this.mForm.get('email').value, this.mForm.get('cpf').value);
+      this.http.post('https://ppvclube.appspot.com/subscribe/familiar', {'email': this.mForm.get('email').value, 'reference': this.mForm.get('cpf').value}).toPromise().then(object => {
+        //object['init_point'];
+        this.uploadInfo(object['init_point']);
+      }).catch(error => {
+        alert(error);
+      });
     
+    } else {
+      //Plano individual
+      //this.getPaymentLinkIndividual(this.mForm.get('email').value, this.mForm.get('cpf').value);
+      this.http.post('https://ppvclube.appspot.com/subscribe/individual', {'email': this.mForm.get('email').value, 'reference': this.mForm.get('cpf').value}).toPromise().then(object => {
+        //object['init_point'];
+        this.uploadInfo(object['init_point']);
+      }).catch(error => {
+        alert(error);
+      });
+    }
+
+    
+
   }
 
-  getPaymentLink(email: string, cpf: string) {
-    this.http.post('', {email: email, cpf: cpf}).toPromise().then(response => {
-      return response;
+  uploadInfo(paymentLink:string) {
+    if (paymentLink == null) {
+      alert('Houve um erro ao gerar o pagamento, tente novamente mais tarde');
+    } else {
+      this.db.collection('cppvsign').add({
+        'primeiroNome': this.mForm.get('primeiroNome').value,
+        'sobrenome': this.mForm.get('sobrenome').value,
+        'cpf': this.mForm.get('cpf').value,
+        'rg': this.mForm.get('rg').value,
+        'orgaoExpedidor': this.mForm.get('orgaoExpedidor').value,
+        'grauDeInstrucao': this.mForm.get('grauDeInstituicao').value,
+        'nomePai': this.mForm.get('nomePai').value,
+        'nomeMae': this.mForm.get('nomeMae').value,
+        'birthDate': this.mForm.get('birthDate').value,
+        'sexo': this.mForm.get('sexo').value,
+        'estadoCivil': this.mForm.get('estadoCivil').value,
+        'cep': this.mForm.get('cep').value,
+        'number': this.mForm.get('number').value,
+        'logradouro': this.mForm.get('logradouro').value,
+        'bairro': this.mForm.get('bairro').value,
+        'cidade': this.mForm.get('cidade').value,
+        'email': this.mForm.get('email').value,
+        'telefoneFixo': this.mForm.get('telefoneFixo').value,
+        'complemento': this.mForm.get('complemento').value,
+        'telefoneCelular': this.mForm.get('telefoneCelular').value,
+        'isWhatsapp': this.telefoneCelularEWhatsapp,
+        'newsLetterAllowae': this.newsLetterAllowance,
+        'donatorCheckBox': this.donatorCheckbox,
+        'familiar': this.toggle,
+        'projetoDoador': this.projectDonator,
+        'pago': false,
+        'linkPagamento': paymentLink,
+        'dependentes': this.dependentes
+      }).then(returnedfulfilled => {
+        window.location.replace(paymentLink);
+      }).catch(error => {
+        alert(error);
+      });
+    }
+  }
+
+  getPaymentLinkFamiliar(emailin: string, cpfin: string): string {
+    this.http.post('https://ppvclube.appspot.com/subscribe/familiar', {'email': emailin, 'reference': cpfin}).toPromise().then(object => {
+      return object['init_point'];
     }).catch(error => {
       alert(error);
     });
+    return null;
+  }
+
+  getPaymentLinkIndividual(emailin: string, cpfin: string): string {
+    this.http.post('https://ppvclube.appspot.com/subscribe/individual', {'email': emailin, 'reference': cpfin}).toPromise().then(object => {
+      return object['init_point'];
+    }).catch(error => {
+      alert(error);
+    });
+    return null;
   }
 
 }

@@ -94,7 +94,7 @@
           </mat-select>
         </mat-form-field>
         <br><br>
-        <mat-checkbox [ngModelOptions]="{standalone: true}">Plano individual</mat-checkbox>
+        <mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="!toggle">Plano individual</mat-checkbox>
         <br>
         <mat-checkbox formControlName="familiar" [(ngModel)]="toggle">Plano familiar</mat-checkbox>
         <div *ngIf="toggle">
@@ -207,16 +207,16 @@
           <mat-label>Telefone celular</mat-label>
             <input matInput placeholder="Ex: XX XXXXXXXXX" required formControlName="telefoneCelular">
         </mat-form-field>
-        <mat-checkbox formControlName="isWhatsapp">O telefone acima também é WhatsApp.</mat-checkbox>
+        <mat-checkbox formControlName="isWhatsapp" [(ngModel)]="telefoneCelularEWhatsapp">O telefone acima também é WhatsApp.</mat-checkbox>
         <br><br>
         <!--Add li and aceito-->
-        <mat-checkbox class="example-full-width" formControlName="newsLetterAllowance">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail.</mat-checkbox>
-        <mat-checkbox formControlName="donatorCheckBox" [(ngModel)]="projetoDonator">Eu já sou doador da Casa Paixão pela Vida.</mat-checkbox>
-        <div *ngIf="projetoDonator">
+        <mat-checkbox class="example-full-width" formControlName="newsLetterAllowance" [(ngModel)]="newsLetterAllowance">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail.</mat-checkbox>
+        <mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="donatorCheckbox">Eu já sou doador da Casa Paixão pela Vida.</mat-checkbox>
+        <div *ngIf="donatorCheckbox">
           <br>
-          <mat-form-field appearance="outline" class="example-full-width" formControlName="projectDonator">
+          <mat-form-field appearance="outline" class="example-full-width">
             <mat-label>Qual projeto?</mat-label>
-            <input type="text" matInput>
+            <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="projectDonator" matInput>
           </mat-form-field>
         </div>
         <br><br>
@@ -227,9 +227,9 @@ Afirmo ainda serem verdadeiros os dados cadastrais contidos nesta ficha, concord
           </p>
         </div>
         <br>
-        <mat-checkbox class="example-full-width" required>Li e concordo com os termos acima.</mat-checkbox>
+        <mat-checkbox class="example-full-width" formControlName="concordoComTermos" required>Li e concordo com os termos acima.</mat-checkbox>
         <br><br>
-        <button mat-button [disabled]="!mForm.valid" type="submit">Ir para pagamento</button>
+        <button mat-button [disabled]="!mForm.valid" type="submit" (click)="sendToDataBase()">Ir para pagamento</button>
       </form>
     </mat-card-content>
   </mat-card>
