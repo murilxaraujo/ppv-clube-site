@@ -7,85 +7,60 @@
        </div>
    </div>
 </div>
-<!--
-<mat-card id="carousel">
-    <mdb-carousel [isControls]="true" [interval]=1000 [animation]="'slide'">
-        <mdb-carousel-item>
-            <img class="d-block w-100" src="assets/top1.jpg" alt="First slide">
-        </mdb-carousel-item>
 
-        <mdb-carousel-item>
-            <img class="d-block w-100" src="assets/top3-2.jpg" alt="Second slide">
-        </mdb-carousel-item>
+<div id="beneficios">
+    <div id="header">
+        <h1>Benefícios do cartão</h1>
+    </div>
+    <div id="content">
 
-        <mdb-carousel-item>
-            <img class="d-block w-100" src="assets/top3.jpg" alt="Third slide">
-        </mdb-carousel-item>
-    </mdb-carousel>
-</mat-card>
--->
+        <div class="single-beneficio-item">
+            <i class="material-icons">healing</i>
+            <h3>Médicos</h3>
+            <p>50% de desconto</p>
+        </div>
 
+        <div class="single-beneficio-item">
+            <i class="material-icons">business</i>
+            
+            <h3>Clinicas e Laboratórios</h3>
+            <p>70% de desconto</p>
+        </div>
 
-<mat-card id="signup">
-    <mat-card-title>
-        Peça já o seu cartão!
-    </mat-card-title>
-    <mat-vertical-stepper >
-        <mat-step label="Informações pessoais" [editable]="false">
-            <div class="stepcontent">
-                
-                    <mat-form-field class="example-full-width">
-                        <input [(ngModel)]="name" matInput placeholder="Nome completo">
-                        <mat-icon matSuffix>account_circle</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field class="example-full-width">
-                        <input [(ngModel)]="email" matInput placeholder="E-mail">
-                        <mat-icon matSuffix>email</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field class="example-full-width">
-                        <span matPrefix>+55 &nbsp;</span>
-                        <input [(ngModel)]="telephone" matInput placeholder="Telefone">
-                        <mat-icon matSuffix>phone</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field class="example-full-width">
-                        <mat-select [(ngModel)]="selected" placeholder="Selecione sua cidade">
-                          <mat-option *ngFor="let city of cities" [value]="city">
-                            {{city}}
-                          </mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                    <div>
-                        <button mat-button matStepperNext (click)="sendToCloud()" type="button">Próximo</button>
-                    </div>
-                
-            </div>
-        </mat-step>
-        <mat-step label="Termos" [editable]="false" *ngIf="false">
-            <div class="stepcontent">
-                <mat-checkbox class="example-full-width" [(ngModel)]="disabled">Eu concordo</mat-checkbox>
-                <div>
-                    <button mat-button matStepperNext type="button" (Click)="sendToCloud()" [disabled]="!disabled">Próximo</button>
-                </div>
-            </div>
-        </mat-step>
-        <mat-step label="Pronto!">
-            <div class="stepcontent">
-                <span>{{sending}}</span>
+        <div class="single-beneficio-item">
+            <i class="material-icons">local_hospital</i>
+            <h3>Farmácias</h3>
+            <p>90% de desconto</p>
+        </div>
 
-            </div>
-        </mat-step>
-    </mat-vertical-stepper>
-</mat-card>
+        <div class="single-beneficio-item">
+            <i class="material-icons">shopping_cart</i>
+            <h3>Comércios</h3>
+            <p>50% de desconto</p>
+        </div>
 
-<div id="revista">
+        <div class="single-beneficio-item">
+            <i class="material-icons">directions_run</i>
+            <h3>Lazer</h3>
+            <p>50% de desconto</p>
+        </div>
+    </div>
+</div>
 
+<div id="pedirCartao">
+    <div id="content">
+        <h1>Peça já  o seu cartão!</h1>
+        <p>Plano individual por R$24,90<br>e planos familiares por R$49,90</p>
+        <button mat-raised-button routerLink="pedircartao">Pedir meu cartão</button>
+    </div>
+    <img src="assets/cartaoClube.png" alt="">
 </div>
 
 <div id="buttons">
     <div id="parceiro">
         <h2>Área do parceiro</h2>
         <a href="https://parceiros.clube.paixaopelavida.com.br">
-            <button mat-raised-button >Acessar</button>
+            <button mat-raised-button>Acessar</button>
         </a>
         
     </div>

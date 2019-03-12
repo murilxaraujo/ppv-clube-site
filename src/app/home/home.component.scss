@@ -1,5 +1,5 @@
 $desktop: 800px;
-$carousel:1100px;
+$carousel:1000px;
 
 @mixin carousel {
     @media (min-width: #{$carousel}) {
@@ -41,6 +41,86 @@ $carousel:1100px;
                 grid-column-gap: 10px;
             }
         }
+    }
+}
+
+#beneficios {
+    margin: 25px;
+    text-align: center;
+
+    #header {
+        width: 100%;
+        text-align: center;
+
+        @include desktop {
+            margin-top: 100px;
+        }
+    }
+
+    #content {
+        margin-top: 35px;
+
+        @include carousel {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            margin-right: 10%;
+            margin-left: 10%;
+            margin-top: 100px;
+            grid-column-gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .single-beneficio-item {
+            text-align: center;
+            margin: 20px;
+            margin-bottom: 50px;
+            i {
+                font-size: 50px;
+            }
+        }
+    }
+}
+
+#pedirCartao {
+    width: 100%;
+    background: url(src/assets/getCardBg.svg) no-repeat;
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+
+    #content {
+        color: white;
+        padding: 10vw;
+
+        h1 {
+            @include desktop {
+                margin-bottom: 25px;
+            }
+        }
+
+        p {
+            @include desktop {
+                margin-bottom: 35px;
+            }
+        }
+    }
+
+    img {
+        max-width: 100%;
+        margin-left: 10%;
+        margin-bottom: 10vw;
+
+        @include desktop {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    }
+
+    @include desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+
     }
 }
 mat-card {
@@ -118,7 +198,7 @@ footer {
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('https://www.elal.com/SiteCollectionImages/Business/shutterstock_74707159.jpg') no-repeat;
     background-size: cover;
     text-align: center;
-    padding: 40px;
+    padding: 50px;
 
     h2 {
         color: white;
@@ -135,7 +215,7 @@ footer {
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(src/assets/IMG_2490.JPG) no-repeat;
     background-size: cover;
     text-align: center;
-    padding: 40px;
+    padding: 50px;
 
     h2 {
         color: white;
