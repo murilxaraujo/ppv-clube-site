@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS } from "@angular/material";
+import { AppDateAdapter, APP_DATE_FORMATS} from 'src/app/date.adapter';
 
 export interface Dependentes {
   nome: string;
@@ -11,10 +13,28 @@ export interface Dependentes {
   birth: string;
   sexo: string;
 }
+
+export const DD_MM_YYYY_Format = {
+  parse: {
+      dateInput: 'LL',
+  },
+  display: {
+      dateInput: 'DD/MM/YYYY',
+      monthYearLabel: 'MMM YYYY',
+      dateA11yLabel: 'LL',
+      monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 @Component({
   selector: 'app-pecaoseu',
   templateUrl: './pecaoseu.component.html',
-  styleUrls: ['./pecaoseu.component.scss']
+  styleUrls: ['./pecaoseu.component.scss'],
+  providers: [{
+      provide: DateAdapter, useClass: AppDateAdapter
+    },
+    {
+      provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
+    }]
 })
 export class PecaoseuComponent implements OnInit {
   
