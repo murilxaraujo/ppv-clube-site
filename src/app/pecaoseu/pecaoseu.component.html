@@ -229,6 +229,9 @@ Afirmo ainda serem verdadeiros os dados cadastrais contidos nesta ficha, concord
         <br>
         <mat-checkbox class="example-full-width" formControlName="concordoComTermos" required>Li e concordo com os termos acima.</mat-checkbox>
         <br><br>
+        <p style="width: 100%">
+          Leia o regulamento <a href="http://www.mribeiro.com.br/wp-content/uploads/2019/03/regulamento-CLUBE-PAIXÃO-PELA-VIDA.pdf">aqui</a>.
+        </p>
         <button mat-button [disabled]="!mForm.valid" type="submit" (click)="sendToDataBase()">Ir para pagamento</button>
       </form>
     </mat-card-content>
