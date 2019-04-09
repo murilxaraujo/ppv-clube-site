@@ -234,3 +234,43 @@
         }
     }
 }
+
+.sobre {
+    background: url('src/assets/home-sobre/bg1.png') no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: auto 400px auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .content {
+        text-align: center;
+        img {
+            width: 321px;
+            height: 143px;
+            margin-bottom: 60px;
+            margin-top: 132px;
+        }
+        div {
+            
+            p {
+                color: white;
+                font-family: 'Montserrat';
+                font-size: 18px;
+            }
+        }
+
+        .botao {
+            margin-top: 70px;
+            margin-bottom: 114px;
+            button{
+                width: 150px;
+                height: 48px;
+                font-size: 18px;
+                font-family: 'Montserrat';
+                font-weight: bold;
+            }
+        }
+    }
+}
