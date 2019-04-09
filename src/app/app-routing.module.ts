@@ -8,11 +8,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { MagazineComponent } from './magazine/magazine.component';
 import { PecaoseuComponent } from './pecaoseu/pecaoseu.component';
+import { NewHomeComponent } from './new-home/new-home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: NewHomeComponent
   },
   {
     path: 'about',

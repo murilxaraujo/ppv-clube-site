@@ -4,6 +4,7 @@
 
 @import "~owl.carousel/dist/assets/owl.carousel.css";
 @import "~owl.carousel/dist/assets/owl.theme.default.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900');
 
 html, body {
     background: #f2f2f2;
@@ -13,3 +14,8 @@ html, body {
 }
 
 button:focus {outline:0;}
+
+@font-face {
+    font-family: Dulcelin;
+    src: url(assets/fonts/Dulcelin.otf) format("opentype");
+  }

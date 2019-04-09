@@ -52,6 +52,7 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { MagazineComponent } from './magazine/magazine.component';
 import { PecaoseuComponent } from './pecaoseu/pecaoseu.component';
+import { NewHomeComponent } from './new-home/new-home.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { PecaoseuComponent } from './pecaoseu/pecaoseu.component';
     BottomSheetMenu,
     LoginComponent,
     MagazineComponent,
-    PecaoseuComponent
+    PecaoseuComponent,
+    NewHomeComponent
   ],
   imports: [
     BrowserModule,

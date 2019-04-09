@@ -1,0 +1,236 @@
+.descontos {
+    background: rgb(45,146,207);
+    background: linear-gradient(180deg, rgba(45,146,207,1) 0%, rgba(0,161,200,1) 100%);
+    text-align: center;
+
+    div .header{
+        padding-top: 60px;
+        line-height: 38pt;
+        h2:first-child {
+            color: white;
+            font-size: 38px;
+            font-weight: bold;
+            font-family: 'Montserrat';
+        }
+
+        h2:nth-child(2) {
+            color: #F3F377;
+            position: relative;
+            bottom: 20px;
+            font-family: 'Dulcelin';
+            font-size: 54px;
+        }      
+    }
+
+    div .content {
+        margin-left: 10%;
+        margin-right: 10%;
+        .images {
+            margin-top: 50px;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            line-height: 128px;
+
+            div {
+                position: relative;
+            }
+
+            div:first-child {
+                img:first-child {
+                    margin: auto;
+                    
+                    height: 128px;
+                    width: 128px;
+                    margin-bottom: 29px;
+                    vertical-align: middle;
+                }
+
+                img:nth-child(2) {
+                    position: absolute;
+                    bottom: 5px;
+                    left: 10px;
+                }
+            }
+
+            div:nth-child(2) {
+                img:first-child {
+                    margin: auto;
+                    
+                    height: 128px;
+                    width: 128px;
+                    margin-bottom: 29px;
+                    vertical-align: middle;
+                }
+
+                img:nth-child(2) {
+                    position: absolute;
+                    bottom: 5px;
+                    left: 10px;
+                }
+            }
+
+            div:nth-child(3) {
+                img:first-child {
+                    margin: auto;
+                    position: relative;
+                    bottom: 8px;
+                    height: 135px;
+                    width: 128px;
+                    margin-bottom: 29px;
+                    vertical-align: middle;
+                }
+
+                img:nth-child(2) {
+                    position: absolute;
+                    bottom: 5px;
+                    left: 10px;
+                }
+            }
+
+            div:nth-child(4) {
+                img:first-child {
+                    margin: auto;
+                    position: relative;
+                    top: 15px;
+                    height: 110px;
+                    width: 128px;
+                    margin-bottom: 29px;
+                    vertical-align: middle;
+                }
+
+                img:nth-child(2) {
+                    position: absolute;
+                    bottom: 5px;
+                    left: 10px;
+                }
+            }
+
+            div:nth-child(5) {
+                img:first-child {
+                    margin: auto;
+                    
+                    height: 128px;
+                    width: 128px;
+                    margin-bottom: 29px;
+                    vertical-align: middle;
+                }
+
+                img:nth-child(2) {
+                    position: absolute;
+                    bottom: 5px;
+                    left: 10px;
+                }
+            }
+             
+        }
+
+        .labels {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            p {
+                font-family: 'Montserrat';
+                font-weight: bold;
+                color: white;
+                font-size: 22px;
+            }
+        }
+
+        .botao{
+            padding-top: 40px;
+            padding-bottom: 87px;
+            button {
+                height: 48px;
+                width: 261px;
+
+                color: #2D92CF;
+                font-size: 18px;
+                font-family: 'Montserrat';
+                font-weight: bold;
+            }
+        }
+
+    }
+}
+
+.vantagens {
+    .content {
+        text-align: center;
+        .header {
+            padding-top: 63px;
+            padding-top: 60px;
+            line-height: 38pt;
+            h2:first-child {
+                color: #2D92CF;
+                font-size: 38px;
+                font-weight: bold;
+                font-family: 'Montserrat';
+            }
+
+            h2:nth-child(2) {
+                color: #DF1B6F;
+                position: relative;
+                bottom: 20px;
+                font-family: 'Dulcelin';
+                font-size: 54px;
+            }    
+        }
+
+        .items {
+            margin-left: 20%;
+            margin-right: 20%;
+            text-align: center;
+            .labels {
+                margin-top: 34px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                p {
+                    font-family: 'Montserrat';
+                    font-weight: bold;
+                    color: #343434;
+                    font-size: 22px;
+                }
+            }
+
+            .icons {
+                margin-top: 40px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: center;
+                #item:first-child img {
+                    width: 129px;
+                    height: 129px;
+                }
+
+                #item:nth-child(2) img {
+                    width: 129px;
+                    height: 129px;
+                    position: relative;
+                    bottom: 10px;
+                }
+
+                #item:nth-child(3) img {
+                    width: 146px;
+                    height: 146px;
+                    position: relative;
+                    bottom: 11px;
+                }
+            }
+        }
+
+        .botao{
+            padding-top: 40px;
+            padding-bottom: 87px;
+            button {
+                height: 48px;
+                width: 217px;
+
+                background-color: #DF1B6F;
+                color: white;
+                font-size: 18px;
+                font-family: 'Montserrat';
+                font-weight: bold;
+            }
+        }
+    }
+}
