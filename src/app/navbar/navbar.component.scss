@@ -10,12 +10,15 @@ $desktop: 800px;
 
 
 mat-toolbar {
-    background-color: #52aad4;
-    color: white;
-    
+    background-color: white;
+    color: #00A1C8;
+    height: 100px;
+
     img {
-        height: 90%;
-        margin: 15px;
+        height: 70px;
+        margin-left: 35px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .spacer {
@@ -23,7 +26,38 @@ mat-toolbar {
     }
 
     button {
-        margin: 2.5px;
+        color: #707070;
+        font-family: 'Montserrat';
+        font-size: 16px;
+        width: 150px;
+        height: 45px;
+    }
+
+    button:nth-child(6) {
+        margin-right: 20px;
+    }
+
+    button:nth-child(7) {
+        background-color: #00A1C8;
+        color: white;
+        font-size: 16px;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        width: 190px;
+        height: 45px;
+        margin-right: 29px;
+    }
+
+    button:nth-child(8) {
+        background-color: #DF1B6F;
+        color: white;
+        font-size: 16px;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        width: 190px;
+        height: 45px;
+        margin-right: 29px;
+
     }
 
     .desktopmenu {
