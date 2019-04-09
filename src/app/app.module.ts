@@ -29,6 +29,8 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import {NgxQRCodeModule} from 'ngx-qrcode2';
 
 import {AngularFireModule} from '@angular/fire';
@@ -109,7 +111,8 @@ import { NewHomeComponent } from './new-home/new-home.component';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    FontAwesomeModule
   ],
   schemas:[NO_ERRORS_SCHEMA],
   providers: [],

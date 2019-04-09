@@ -322,3 +322,59 @@
         }
     }
 }
+
+.footer {
+    text-align: center;
+    font-family: 'Montserrat';
+
+    .content {
+        background-color: #2D92CF;
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr 1px 1fr;
+        padding: 40px;
+        color: white;
+        height: 311px;
+
+        div:first-child img{
+            position: relative;
+            top: 50px;
+        }
+
+        div:nth-child(3) {
+            
+            #title {
+                font-weight: bold;
+                margin-bottom: 55px;
+            }
+
+            div {
+                #phoneitem {
+                    text-align: left;
+                    display: inline;
+                    i {
+                        display: inline;
+                    }
+                    p {
+                        display: inline;
+                    } 
+                }
+            }
+        }
+    }
+
+    span {
+        background-color: white;
+        width: 1px;
+        height: 100%;
+        
+    }
+
+    a {
+        color: #343434;
+    }
+
+    #copystatement {
+        margin: 0;
+        padding: 20px;
+    }
+}
