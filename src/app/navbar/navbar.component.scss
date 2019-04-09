@@ -34,7 +34,7 @@ mat-toolbar {
     }
 
     button:nth-child(6) {
-        margin-right: 20px;
+        margin-right: 29px;
     }
 
     button:nth-child(7) {
@@ -60,6 +60,8 @@ mat-toolbar {
 
     }
 
+    
+
     .desktopmenu {
         display: none;
         @include desktop {
@@ -68,8 +70,12 @@ mat-toolbar {
     }
 
     .mobilemenu {
-        background-color: white;
+        background-color: #00A1C8;
         display: block;
+        width: 45px;
+        height: 45px;
+        margin-right: 20px;
+        color: white;
         @include desktop {
             display: none;
         }
