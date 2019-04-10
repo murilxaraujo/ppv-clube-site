@@ -8,7 +8,7 @@ $desktop: 800px;
 
 #content {
     padding: 20px;
-
+    
     @include desktop {
         display: grid;
         grid-template-columns: 2fr 1fr 2fr;
