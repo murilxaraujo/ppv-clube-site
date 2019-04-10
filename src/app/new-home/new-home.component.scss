@@ -323,6 +323,78 @@
     }
 }
 
+.userlogin {
+    text-align: center;
+    .content {
+        padding: 100px;
+        margin-right: 10%;
+        margin-left: 10%;
+        display: grid;
+        grid-template-columns: auto 2px auto;
+        span {
+            width: 2px;
+            height: 100%;
+            background-color: #DEDEDE;
+        }
+
+        div:first-child {
+            img {
+                width: 53px;
+                height: 72px;
+                margin-bottom: 7px;
+            }
+
+            h2 {
+                font-family: 'Montserrat';
+                font-size: 38px;
+                color: #DF1B6F;
+                font-weight: bold;
+                margin-bottom: 29px;
+            }
+
+            button {
+                width: 217px;
+                height: 48px;
+                background: #DF1B6F;
+                color: white;
+                font-family: 'Montserrat';
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+
+        div:nth-child(3) {
+            position: relative;
+            top: 25px;
+            
+            img {
+                width: 76px;
+                height: 50px;
+                position: relative;
+                bottom: 20px;
+            }
+
+            h2 {
+                font-family: 'Montserrat';
+                font-size: 38px;
+                color: #00A1C8;
+                font-weight: bold;
+                margin-bottom: 29px;
+            }
+
+            button {
+                width: 217px;
+                height: 48px;
+                background: #00A1C8;
+                color: white;
+                font-family: 'Montserrat';
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
 .footer {
     text-align: center;
     font-family: 'Montserrat';
@@ -348,15 +420,54 @@
             }
 
             div {
-                #phoneitem {
-                    text-align: left;
-                    display: inline;
+                text-align: center;
+                position: relative;
+                .phoneitem {
+                    
                     i {
-                        display: inline;
+                        display: inline-block;
+                        position: relative;
+                        top: 7px;
+                        right: 5px;
                     }
+
                     p {
-                        display: inline;
+                        display: inline-block;
+                        margin-bottom: 5px;
                     } 
+                }
+
+                .phoneitem:first-child {
+                    i{
+                        position: relative;
+                        right: 9px;
+                    }
+                }
+
+                .phoneitem:nth-child(3) {
+                    i {
+                        position: relative;
+                        right: 9px;
+                    }
+                }
+            }
+        }
+
+        div:nth-child(5) {
+            position: relative;
+            top: 60px;
+            p {
+                font-weight: bold;
+            }
+
+            .icons {
+                a {
+                    margin: 10px;
+                }
+                a svg {
+                    fill: white;
+                    width: 36px;
+                    height: 36px;
                 }
             }
         }
