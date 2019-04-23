@@ -211,6 +211,7 @@
         <br><br>
         <!--Add li and aceito-->
         <mat-checkbox class="example-full-width" formControlName="newsLetterAllowance" [(ngModel)]="newsLetterAllowance">Autorizo o envio de material informativo da Paixão pela Vida no meu e-mail.</mat-checkbox>
+        <br><br>
         <mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="donatorCheckbox">Eu já sou doador da Casa Paixão pela Vida.</mat-checkbox>
         <div *ngIf="donatorCheckbox">
           <br>
